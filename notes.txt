@@ -1,0 +1,14 @@
+Step 1: Runtime Analysis:
+
+Part 1:
+- doublerAppend function takes an array parameter (nums) and doubles each number in the array?
+- doublerInsert function takes an array parameter (nums) and doubles each number in the array, returns them in a reversed order (when appending to a new array, instead of appending at the end like above, inserts in the front of the array)?
+- getSizedArray function takes a number/integer parameter (size), returns an array with a length equal to that parameter? 
+- after creating an array with getSizedArray, we are testing the doublerAppend & doublerInsert functions by starting a timer before each function and stopping the timer after the function finishes executing. Then we use console.log() at the end to create an output that allows us to see and compare the amount of time it took to execute doublerAppend vs doublerInsert.
+
+Part 2:
+- Results for the extraLargeArray:
+    - doublerInsert: 1.7042024 s
+    - doublerAppend: 4.1568 ms
+
+Part 3:
