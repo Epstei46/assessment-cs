@@ -8,7 +8,23 @@ Part 1:
 
 Part 2:
 - Results for the extraLargeArray:
-    - doublerInsert: 1.7042024 s
     - doublerAppend: 4.1568 ms
+    - doublerInsert: 1.7042024 s
 
 Part 3:
+- Results for the tinyArray:
+    - Append: [8.8 μs]    & Insert: [11 μs]
+- Results for the smallArray:
+    - Append: [19.7 μs]   & Insert: [22.9 μs]
+- Results for the mediumArray:
+    - Append: [75.2 μs]   & Insert: [200.1 μs]
+- Results for the largeArray:
+    - Append: [606.9 μs]  & Insert: [14.8663 ms]
+- Results for the extraLargeArray:
+    - Append: [5.2909 ms] & Insert: [1.7579141 s]
+
+Part 4:
+- The function run time varies more for the smaller arrays, so I will focus on looking at the mediumArray (length of 1,000), largeArray (length of 10,000), and extraLargeArray (length of 100,000). For the doublerAppend function, the percent change is 707% between medium-large and 772% for large-extraLarge. For the doublerInsert function, the percent change is 7330% between medium-large and 11725% for large-extraLarge. Got these numbers by using a "percent change calculator" I found on Google, I used the one from calculatorsoup.com. Based on these results, we can tell that the doublerAppend function scales better than the doublerInsert function because it has a lower percent change increase as the size of the array/parameter being passed in increases.
+
+Part 5:
+The doublerAppend function uses the .push() method to add the new element to the end of an array. The doublerInsert function uses the .unshift() method to increase the index of all elements in the array by +1, so that the length of the array has increased by 1 but now no element is assigned to index 0, then adds the new element to the beginning of the array (index 0). The .unshift() method is more complex and needs to do more before it returns the modified array, so that is why the doublerInsert function that uses the .unshift() method is slower.

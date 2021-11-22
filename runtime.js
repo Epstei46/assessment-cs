@@ -40,23 +40,31 @@ const mediumArray = getSizedArray(1000);
 const largeArray = getSizedArray(10000);
 const extraLargeArray = getSizedArray(100000);
 
+let allArrays = {
+    "zeroArray": [0],   // For some reason, function below has a ~115 microsecond slowdown for the timer on the first key:value pair, so I added this zeroArray so that important results are not affected
+    "tinyArray": tinyArray,
+    "smallArray": smallArray,
+    "mediumArray": mediumArray,
+    "largeArray": largeArray,
+    "extraLargeArray": extraLargeArray
+}
 
+for (const [key, value] of Object.entries(allArrays)){
+    // console.log(`${key}: ${value}`);
 
-// How long does it take to double every number in a given 
-// array? 
+    // How long does it take to double every number in a given array? 
 
-// Try it with first function
-perf.start();                     // Starts timer
-doublerAppend(extraLargeArray);
-let resultsAppend = perf.stop();  // Stops timer and save time results
+    // Try it with doublerAppend function
+    perf.start();                     // Starts timer
+    doublerAppend(value);
+    let resultsAppend = perf.stop();  // Stops timer and save time results
 
+    // Try it with doublerInsert function
+    perf.start();
+    doublerInsert(value);
+    let resultsInsert = perf.stop();
 
-// Try it with second function
-perf.start();
-doublerInsert(extraLargeArray);
-let resultsInsert = perf.stop();
-
-
-console.log('Results for the extraLargeArray:');
-console.log("- resultsInsert function: ", resultsInsert.preciseWords);
-console.log("- resultsAppend function: ", resultsAppend.preciseWords);
+    console.log(`Results for the ${key}:`);
+    console.log("- resultsAppend function: ", resultsAppend.preciseWords);
+    console.log("- resultsInsert function: ", resultsInsert.preciseWords);
+}
