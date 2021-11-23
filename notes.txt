@@ -28,3 +28,4 @@ Part 4:
 
 Part 5:
 The doublerAppend function uses the .push() method to add the new element to the end of an array. The doublerInsert function uses the .unshift() method to increase the index of all elements in the array by +1, so that the length of the array has increased by 1 but now no element is assigned to index 0, then adds the new element to the beginning of the array (index 0). The .unshift() method is more complex and needs to do more before it returns the modified array, so that is why the doublerInsert function that uses the .unshift() method is slower.
+Also, .push() has a runtime of O(1) and .unshift() has a runtime of O(n). The doublerInsert function that uses the .unshift() method is slower because it has a runtime of O(n), which is slower than O(1).
